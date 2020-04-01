@@ -5,10 +5,7 @@ import com.liujiexin.springcloud.entities.Payment;
 import com.liujiexin.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * ClassName PaymentContronller
@@ -25,8 +22,8 @@ public class PaymentContronller
     @Autowired
     private PaymentService paymentService;
 
-    @PatchMapping("/payment/create")
-    public CommonResult create(Payment payment)
+    @PostMapping("/payment/create")
+    public CommonResult create(@RequestBody Payment payment)
     {
         int result = paymentService.create(payment);
         log.info("********插入结果*********："+ result);
@@ -39,12 +36,12 @@ public class PaymentContronller
 
 
     @GetMapping("/payment/get/{id}")
-    public CommonResult getPaymentById(@PathVariable("id") Long id)
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id)
     {
         Payment payment = paymentService.getPaymentById(id);
-        log.info("********插入结果*********："+ payment);
+        log.info("********查询结果*********："+ payment);
         if(payment != null){
-            return new CommonResult(200, "查询成功", payment);
+            return new CommonResult(200, "查询成功22", payment);
         }else {
             return new CommonResult(444, "没有对应记录，查询id", id);
         }
