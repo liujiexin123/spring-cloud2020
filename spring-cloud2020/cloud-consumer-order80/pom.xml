@@ -13,6 +13,13 @@
 
     <dependencies>
 
+        <!-- 配置 eureka 客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- 引入公共api  -->
         <dependency>
             <groupId>com.liujiexin.springcloud</groupId>
             <artifactId>cloud-api-commons</artifactId>

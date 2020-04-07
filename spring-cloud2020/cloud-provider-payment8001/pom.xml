@@ -13,7 +13,14 @@
     <artifactId>cloud-provider-payment8001</artifactId>
     <dependencies>
 
+        <!-- eureka client  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
 
+
+        <!-- 引入自己定义的api 通用包 可以使用Payment 支付Entity -->
         <dependency>
             <groupId>com.liujiexin.springcloud</groupId>
             <artifactId>cloud-api-commons</artifactId>
